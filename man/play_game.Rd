@@ -19,7 +19,7 @@ The function determines the outcome of the game based on the final door selectio
 The function calls each of the previous functions to simulate a game passing
 }
 \examples{
- play_game()
+  play_game()
   - create_game() output: c("goat", "car", "goat")
   - select_door() output: 1 
   - open_goat_door( c("goat", "car", "goat"), 1) output: 3
@@ -27,7 +27,7 @@ The function calls each of the previous functions to simulate a game passing
    - determine_winner( 1, c("goat", "car", "goat")) output: "lose"
   - change_door( stay=F, 3, 1) output: 2
    - determine_winner( 1, c("goat", "car", "goat")) output: "win"
-Output:
+ Output:
   game.results("stay", "lose"
               "switch", "win")
 }

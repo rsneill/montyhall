@@ -160,6 +160,42 @@ change_door <- function( stay=T, opened.door, a.pick )
 
 
 #' @title
+#'   Evaluates the result of the game based on the final door selection
+#' 
+#' @description
+#'   The function determines the outcome of the game based on the final door selection.
+#' 
+#' @details
+#'   The accepts the final.pick (from change_door) and the game vector (from create_game).
+#'   If the contestant correctly selected the car, the function returns "WIN".  If the
+#'   contestant selected a goat, the function returns "LOSE".
+#' 
+#' @param final.pick The final door selection made by the contestant.
+#' @param game The game vector containing the prize locations.
+#' 
+#' @return 
+#'   A character value indicating the outcome of the game.  The function returns "WIN" if the
+#'   contestant selected the car and "LOSE" if the contestant selected a goat.
+#' 
+#' @examples
+#'  determine_winner( 1, c("goat", "car", "goat"))
+#' Output: "LOSE"
+#' 
+#' @export
+determine_winner <- function( final.pick, game )
+{
+   if( game[ final.pick ] == "car" )
+   {
+      return( "WIN" )
+   }
+   if( game[ final.pick ] == "goat" )
+   {
+      return( "LOSE" )
+   }
+}
+
+
+#' @title
 #'   Simulate the outcome of the game
 #' 
 #' @description
