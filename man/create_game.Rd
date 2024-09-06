@@ -2,7 +2,7 @@
 % Please edit documentation in R/monty-hall-pkg.R
 \name{create_game}
 \alias{create_game}
-\title{Create a new Monty Hall Problem game.}
+\title{Create a new game based on the Monty Hall Problem.}
 \usage{
 create_game()
 }
