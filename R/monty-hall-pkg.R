@@ -15,10 +15,10 @@
 #'   or switch to the other unopened door. There was a famous 
 #'   debate about whether it was optimal to stay or switch when
 #'   given the option to switch, so this simulation was created
-#'   to test both strategies. 
+#'   to test both strategies.
 #'
 #' @param ... no arguments are used by the function.
-#' 
+#'
 #' @return 
 #'   The function returns a character vector with three values
 #'   indicating the positions of goats and the car.
@@ -74,17 +74,17 @@ select_door <- function( )
 #'  Reveal a 'Zonk' (goat)
 #' 
 #' @description
-#'  The host requests that one of the models/assistants reveal a losing
-#'  door for the contestant.  The revealed door cannot reveal the car
-#'  or include the contestants selection (a.pick).
+#'   The host requests that one of the models/assistants reveal a losing
+#'   door for the contestant.  The revealed door cannot reveal the car
+#'   or include the contestants selection (a.pick).
 #' 
 #' @details
-#'  The function evaluates the constestant selection.  If the contestant selected
-#'  the car, the function will randomly reveal one of the other doors.  If the
-#'  contestant selected a goat, the function will always reveal the other goat door.
-#'  The reveal uses the 'create_game()' vector as the baseline and excludes the car and
-#'  contestant selection.
-#' 
+#'   The function evaluates the constestant selection.  If the contestant selected
+#'   the car, the function will randomly reveal one of the other doors.  If the
+#'   contestant selected a goat, the function will always reveal the other goat door.
+#'   The reveal uses the 'create_game()' vector as the baseline and excludes the car and
+#'   contestant selection.
+#'
 #' @param game The returned value from 'create_game()' containing the vector of doors
 #' @param a.pick The returned value from the 'select_door()' function containing the contestant selection
 #' 
@@ -159,24 +159,22 @@ change_door <- function( stay=T, opened.door, a.pick )
 
 
 
-
-
 #' @title
-#'  Simulate the outcome of the game
+#'   Simulate the outcome of the game
 #' 
 #' @description
-#'  The function determines the outcome of the game based on the final door selection.
+#'   The function determines the outcome of the game based on the final door selection.
 #' 
 #' @details
-#'  The function calls each of the previous functions to simulate a game passing 
+#'   The function calls each of the previous functions to simulate a game passing 
 #' 
 #' @param ... no arguments are used by the function.
 #' 
 #' @return
-#'  A dataframe containing the result of each strategy (stay or switch) and the outcome (win or lose) of each.
+#'   A dataframe containing the result of each strategy (stay or switch) and the outcome (win or lose) of each.
 #' 
 #' @examples
-#'  play_game()
+#'   play_game()
 #'   - create_game() output: c("goat", "car", "goat")
 #'   - select_door() output: 1 
 #'   - open_goat_door( c("goat", "car", "goat"), 1) output: 3
@@ -184,7 +182,7 @@ change_door <- function( stay=T, opened.door, a.pick )
 #'    - determine_winner( 1, c("goat", "car", "goat")) output: "lose"
 #'   - change_door( stay=F, 3, 1) output: 2
 #'    - determine_winner( 1, c("goat", "car", "goat")) output: "win"
-#' Output:
+#'  Output:
 #'   game.results("stay", "lose"
 #'               "switch", "win")
 #' @export
@@ -211,30 +209,28 @@ play_game <- function()
 
 
 
-
-
 #' @title
-#'  Loop through a simulation the game n times and return the results as a dataframe.
+#'   Loop through a simulation the game n times and return the results as a dataframe.
 #' 
 #' @description
-#'  The function simulates the game n times and returns the results as a dataframe.
+#'   The function simulates the game n times and returns the results as a dataframe.
 #'  
 #' @details
-#'  The function uses a for loop to iterate through the number of games specified.  It 
-#'  calls the 'play_game()' function to execute the game and collect the results.
-#'  The function also uses the 'dplyr' package to bind the results into a dataframe.
-#'  Resutls are presented as a table of proportions of wins and losses for each strategy
-#'  rounded to two decimal places.
+#'   The function uses a for loop to iterate through the number of games specified.  It 
+#'   calls the 'play_game()' function to execute the game and collect the results.
+#'   The function also uses the 'dplyr' package to bind the results into a dataframe.
+#'   Resutls are presented as a table of proportions of wins and losses for each strategy
+#'   rounded to two decimal places.
 #' 
 #' @param n The number of games to simulate.
 #' 
 #' @return 
-#'  A dataframe containing the results of each strategy for every game iteration.  The 
-#'  columns contain the strategy and the outcome of the game.  The dataframe contains 
-#'  two rows for each game, one for the stay strategy and one for the #' switch strategy.
+#'   A dataframe containing the results of each strategy for every game iteration.  The 
+#'   columns contain the strategy and the outcome of the game.  The dataframe contains 
+#'   two rows for each game, one for the stay strategy and one for the #' switch strategy.
 #' 
 #' @examples
-#' #'  play_game()
+#'   play_game()
 #'   - create_game() output: c("goat", "car", "goat")
 #'   - select_door() output: 1 
 #'   - open_goat_door( c("goat", "car", "goat"), 1) output: 3
@@ -242,20 +238,20 @@ play_game <- function()
 #'    - determine_winner( 1, c("goat", "car", "goat")) output: "lose"
 #'   - change_door( stay=F, 3, 1) output: 2
 #'    - determine_winner( 1, c("goat", "car", "goat")) output: "win"
-#' Output (n = 1):
+#'  Output (n = 1):
 #'   game.results("stay", "lose"
 #'               "switch", "win")
 #' 
-#' Output (n = 3):
+#'  Output (n = 3):
 #'   game.results("stay", "lose"
 #'               "switch", "win")
 #'               "stay", "lose"
 #'               "switch", "win"
 #'               "stay", "win"
 #'               "switch", "lose")
-#' 
+#'
 #' @export
-#' 
+#'
 play_n_games <- function( n=100 )
 {
   
